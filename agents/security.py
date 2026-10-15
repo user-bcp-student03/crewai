@@ -49,10 +49,43 @@ agent = Agent(role='Revisor de seguridad',
               llm=llm,
               verbose=True, allow_delegation=False)
 
+TASK_STRUCTURE = """Tareas del rol (ejecútalas en este orden):
+1. Delimitar alcance:
+   - Resume el objetivo funcional y la superficie de ataque según el contexto entregado.
+   - Enumera explícitamente qué evidencia sí está disponible y qué no.
+2. Revisar controles y riesgos:
+   - Evalúa autenticación, autorización, validaciones, manejo de secretos/datos sensibles,
+     errores/logs, sesiones/tokens, abuso de flujos y dependencias/configuración cuando aplique.
+   - Distingue hallazgos Confirmados, Potenciales y Pendientes de evidencia.
+3. Priorizar y recomendar:
+   - Para cada hallazgo, reporta severidad, confianza, impacto, evidencia y recomendación verificable.
+   - Prioriza primero por severidad y luego por confianza.
+4. Cerrar con veredicto:
+   - Emite APROBADO o REQUIERE CAMBIOS, justificado por hallazgos confirmados.
+   - Declara riesgos residuales, limitaciones y validaciones humanas recomendadas.
+"""
+
+
+def _format_acceptance_criteria(criteria: object) -> str:
+    if isinstance(criteria, list) and criteria:
+        return "\n".join(f"- {item}" for item in criteria)
+    text = str(criteria).strip()
+    return text if text else "- Sin criterios de aceptación provistos"
+
 
 def build_task(feature: dict) -> Task:
-    return Task(description=INSTRUCTIONS + "\nFeature: " + str(feature.get("title", ""))
-                + "\n" + str(feature.get("description", ""))
-                + "\n" + str(feature.get("acceptance_criteria", [])),
+    title = str(feature.get("title", "")).strip() or "Sin título"
+    description = str(feature.get("description", "")).strip() or "Sin descripción"
+    acceptance_criteria = _format_acceptance_criteria(
+        feature.get("acceptance_criteria", [])
+    )
+    task_description = (
+        f"{INSTRUCTIONS}\n\n"
+        f"{TASK_STRUCTURE}\n"
+        f"Feature: {title}\n"
+        f"Descripción:\n{description}\n"
+        f"Criterios de aceptación:\n{acceptance_criteria}"
+    )
+    return Task(description=task_description,
                 expected_output='Un informe de seguridad con resumen y veredicto, alcance, hallazgos priorizados con evidencia y recomendaciones verificables, riesgos residuales y limitaciones. No debe incluir código ni afirmar pruebas no ejecutadas.',
                 agent=agent)
