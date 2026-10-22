@@ -25,7 +25,12 @@ INSTRUCTIONS = (
 )
 agent = Agent(role='Desarrollador frontend',
               goal="Implementar el recorrido Angular según el contrato de API aprobado.",
-              backstory="Eres responsable de la experiencia de usuario, accesibilidad y consumo del API en la interfaz Angular.",
+              backstory=(
+                  "Eres desarrollador frontend especializado en Angular. Transformas "
+                  "recorridos de usuario y contratos de API aprobados en pantallas, "
+                  "componentes y servicios cliente accesibles; manejas respuestas y "
+                  "estados de interfaz sin modificar el backend ni la persistencia."
+              ),
               llm=llm, verbose=True, allow_delegation=False)
 
 
