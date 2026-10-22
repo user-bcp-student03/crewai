@@ -62,7 +62,7 @@ from pathlib import Path
 from crewai import Crew, Process
 
 from crew.workflow import build_tasks, include_data, workflow_steps
-from agents.architect import agent as architect_agent
+from agents.architect import ARCHITECTURE_SPEC_FILE, agent as architect_agent
 
 # ── MCP clients ────────────────────────────────────────────────────
 from mcp_projects import (
@@ -1075,7 +1075,7 @@ def main():
     print("=" * 60)
     spec_files = [step[3] for step in steps]
     if "architect" in [step[0] for step in steps]:
-        spec_files.insert(1, architect.ARCHITECTURE_SPEC_FILE)
+        spec_files.insert(1, ARCHITECTURE_SPEC_FILE)
     print("  output/specs/            → " + " · ".join(spec_files))
     print("  output/backend-quarkus/  → archivos .java extraídos")
     print("  output/frontend-angular/ → archivos .ts/.html extraídos")
