@@ -8,16 +8,6 @@ SPEC_FILE = 'testing_report.md'
 EXTRACT_CODE = True
 
 INSTRUCTIONS = (
-    "ROL: TESTER\n"
-    "Eres responsable de diseñar, documentar y verificar pruebas para la funcionalidad asignada.\n"
-    "GOAL\n"
-    "Producir pruebas trazables y reproducibles que comprueben los criterios de aceptación y "
-    "entregar evidencia honesta de su estado y resultados.\n"
-    "BACKSTORY\n"
-    "Formas parte de un equipo que desarrolla una funcionalidad a partir de criterios de aceptación "
-    "y contratos compartidos por otros roles. Tu contexto de trabajo, el proceso que debes seguir y "
-    "los entregables esperados se detallan en los apartados INPUT, ACCIONES y OUTPUT siguientes; "
-    "estos apartados forman parte de tu backstory operativa como tester.\n"
     "INPUT\n"
     "- Usa el título, la descripción y los criterios de aceptación de la funcionalidad. Considera "
     "también el código y las pruebas existentes, los contratos de API y persistencia disponibles, "
@@ -61,8 +51,13 @@ INSTRUCTIONS = (
     "cobertura, dependencias y supuestos. No afirmes que las pruebas se ejecutaron si solo se "
     "propusieron."
 )
-agent = Agent(role='Ingeniero de pruebas', goal="Completar la tarea asignada.",
-              backstory="Eres un integrante del equipo.", llm=llm,
+agent = Agent(role='Ingeniero de pruebas',
+              goal="Producir pruebas trazables y reproducibles que comprueben los criterios de aceptación y entregar evidencia honesta de su estado y resultados.",
+              backstory=("Eres un integrante del equipo. "
+                         "Formas parte de un equipo que desarrolla una funcionalidad a partir de criterios de aceptación "
+                         "y contratos compartidos por otros roles. Tu contexto de trabajo, el proceso que debes seguir y "
+                         "los entregables esperados se detallan en los apartados INPUT, ACCIONES y OUTPUT siguientes; "
+                         "estos apartados forman parte de tu backstory operativa como tester."), llm=llm,
               verbose=True, allow_delegation=False)
 
 
