@@ -8,10 +8,10 @@ SPEC_FILE = 'frontend_spec.md'
 EXTRACT_CODE = True
 
 INSTRUCTIONS = (
-    "Parte del contrato de API y del recorrido del usuario para crear una tarea "
-    "con título. Define el campo, su validación visible, las acciones y los "
-    "estados de pantalla; envía la tarea a la API aprobada y permite usar el "
-    "formulario con teclado."
+    "Implementa en Angular un formulario accesible por teclado para crear una "
+    "tarea con título. Según el recorrido del usuario y el contrato de API, "
+    "define el campo, su validación visible, las acciones y los estados de "
+    "carga y error; integra el envío con la API aprobada."
 )
 agent = Agent(role='Desarrollador frontend',
               goal="Crear una tarea con título desde una interfaz Angular accesible.",
