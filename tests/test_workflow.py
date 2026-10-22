@@ -105,6 +105,16 @@ Como usuario, quiero una API.
                 return "```typescript\n// balance.service.ts\nexport class BalanceService {}\n```"
             if key == "testing":
                 return "Coverage report. NO EJECUTADO.\n```java\n// BalanceTest.java\npackage pe.bcp.login;\npublic class BalanceTest {}\n```"
+            if key == "architect":
+                return (
+                    "<!-- BEGIN architecture.md -->\n"
+                    "# Architecture\n"
+                    "```mermaid\nflowchart LR\n    Client --> API\n```\n"
+                    "<!-- END architecture.md -->\n"
+                    "<!-- BEGIN user_story.md -->\n"
+                    "# User story\nApproved architecture output.\n"
+                    "<!-- END user_story.md -->"
+                )
             return f"Approved output from {key}. No model was called."
 
         with tempfile.TemporaryDirectory() as tmp, contextlib.ExitStack() as stack:
