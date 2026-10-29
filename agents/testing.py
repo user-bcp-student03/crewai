@@ -51,7 +51,7 @@ INSTRUCTIONS = (
     "cobertura, dependencias y supuestos. No afirmes que las pruebas se ejecutaron si solo se "
     "propusieron."
 )
-agent = Agent(role="Ingeniero de pruebas", goal="Convertir los criterios de aceptación en pruebas trazables y entregar evidencia veraz de su estado y resultados",
+agent = Agent(role="Ingeniero de pruebas de Software", goal="Convertir los criterios de aceptación en pruebas trazables y entregar evidencia veraz de su estado y resultados",
               backstory=(
                   "Eres un integrante del equipo. "
                   "Trabajas a partir de los criterios de aceptación, de los contratos de API y persistencia que aportan otros roles. "
