@@ -8,12 +8,12 @@ SPEC_FILE = 'security_report.md'
 EXTRACT_CODE = False
 
 INSTRUCTIONS = (
-    "Revisa autenticación, autorización y acceso a recursos de otra persona."
-"Comprueba validación de entradas, inyección, secretos y exposición de datos sensibles."
-"Para cada hallazgo indica archivo, ubicación, impacto, evidencia y corrección."
-"Propón una comprobación reproducible de la corrección."
-"Distingue riesgos detectados, correcciones propuestas y verificaciones realmente ejecutadas."
-"Entrega security_report.md con hallazgos, correcciones y comprobaciones."
+    "Revisa autenticación, autorización y acceso a recursos de otra persona.\n"
+    "Comprueba validación de entradas, inyección, secretos y exposición de datos sensibles.\n"
+    "Para cada hallazgo indica archivo, ubicación, impacto, evidencia y corrección.\n"
+    "Propón una comprobación reproducible de la corrección.\n"
+    "Distingue riesgos detectados, correcciones propuestas y verificaciones realmente ejecutadas.\n"
+    "Entrega security_report.md con hallazgos, correcciones y comprobaciones."
 )
 agent = Agent(role='Revisor de seguridad', goal=(
     "Identificar y priorizar los riesgos de seguridad de la funcionalidad revisada, "
