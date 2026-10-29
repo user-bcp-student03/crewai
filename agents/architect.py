@@ -18,7 +18,7 @@ INSTRUCTIONS = (
     "Entrega user_story.md con: solución propuesta, componentes, contrato de API, criterios verificables y decisiones pendientes.\n"
     "No inventes endpoints, tablas ni resultados de pruebas que no aparezcan en el código o en el Issue."
 )
-agent = Agent(role='Arquitecto',
+agent = Agent(role='Arquitecto de Software',
               goal="Definir la solución técnica del requerimiento: componentes, límites, contrato de API "
                    "(entradas, respuestas y errores) y decisiones pendientes para Datos, Backend y Frontend, "
                    "alineadas con los criterios de aceptación y sin inventar supuestos no declarados.",
@@ -26,7 +26,7 @@ agent = Agent(role='Arquitecto',
                         "las interfaces existentes y las restricciones del producto. Diseñas límites claros entre "
                         "componentes, prefieres contratos simples y explícitos, y señalas los supuestos pendientes "
                         "en lugar de darlos por válidos. Tu entregable sirve de referencia a Datos, Backend, Frontend, "
-                        "Pruebas y Seguridad, así que debe ser verificable. Validar cambios de API", llm=llm,
+                        "Pruebas y Seguridad, así que debe ser verificable.", llm=llm,
               verbose=True, allow_delegation=False)
 
 
