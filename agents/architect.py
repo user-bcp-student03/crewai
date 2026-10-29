@@ -26,7 +26,7 @@ agent = Agent(role='Arquitecto',
                         "las interfaces existentes y las restricciones del producto. Diseñas límites claros entre "
                         "componentes, prefieres contratos simples y explícitos, y señalas los supuestos pendientes "
                         "en lugar de darlos por válidos. Tu entregable sirve de referencia a Datos, Backend, Frontend, "
-                        "Pruebas y Seguridad, así que debe ser verificable.", llm=llm,
+                        "Pruebas y Seguridad, así que debe ser verificable. Validar cambios de API", llm=llm,
               verbose=True, allow_delegation=False)
 
 
