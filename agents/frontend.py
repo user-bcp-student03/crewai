@@ -26,7 +26,8 @@ INSTRUCTIONS = (
     "Cualquier otro código se trata como error genérico del servidor, salvo que el contrato lo defina. "
     "Reglas de Angular 21: usa componentes standalone, signals, sintaxis de control de flujo @if/@for/@switch, inject() y formularios reactivos tipados. "
     "No uses NgModules nuevos, *ngIf ni *ngFor. Consume las APIs HTTP mediante HttpClient (provideHttpClient). "
-    "Evita suscripciones anidadas y cancela o ignora respuestas obsoletas."
+    "Usa operadores de RxJS como switchMap (sin subscribe anidados) o toSignal para encadenar llamadas HTTP. "
+    "Cancela las peticiones en curso con switchMap o takeUntilDestroyed, y descarta las respuestas obsoletas de peticiones ya superadas."
 )
 
 agent = Agent(
