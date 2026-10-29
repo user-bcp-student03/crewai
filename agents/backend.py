@@ -14,7 +14,7 @@ GOAL = (
     "junto con el código Java en el formato de extracción que exige build_task."
 )
 BACKSTORY = (
-    "Eres el desarrollador backend del equipo. "
+    "Eres el desarrollador backend del equipo. Desarrollar en lenguaje Java version 21 y con Quarkus. "
     "Por orden interno del equipo, su orden es después del agente de data. "
     "Tu código debe ser coherente con los demás agentes: usas el contrato de API de Arquitectura, "
     "el modelo de Datos cuando esté activo y los criterios de aceptación del Issue. "
