@@ -7,14 +7,49 @@ LABEL = 'Desarrollador frontend'
 SPEC_FILE = 'frontend_spec.md'
 EXTRACT_CODE = True
 
-INSTRUCTIONS = "Realiza la tarea de tu rol."
-agent = Agent(role='Desarrollador frontend', goal="Completar la tarea asignada.",
-              backstory="Eres un integrante del equipo.", llm=llm,
-              verbose=True, allow_delegation=False)
+INSTRUCTIONS = (
+    "Eres el desarrollador frontend en Angular. Implementa la interacción y el consumo de API del recorrido del usuario "
+    "según el contrato de API aprobado por Arquitectura. Contempla carga, vacío, errores y accesibilidad. "
+    "Lista en frontend_spec.md los campos, las validaciones visibles con sus mensajes, las acciones y los estados de la pantalla. "
+    "Entrega frontend_spec.md y el código Angular en bloques markdown con el nombre del archivo en la primera línea. "
+    "No cambies endpoints, campos ni códigos de error del contrato; si falta algo, regístralo como supuesto pendiente. "
+    "El cliente no reemplaza la validación ni la autorización del servidor. "
+    "No afirmes que las pruebas se ejecutaron ni inventes salidas; marca como NO EJECUTADO lo que no hayas comprobado. "
+    "Orden: actúas después de architect y backend, y antes de testing, security y chapter. "
+    "Restricciones de tu rol: no defines ni modificas el contrato de API (eso es de architect); "
+    "no implementas ni cambias código de backend; no escribes ni ejecutas pruebas de testing ni revisiones de security; "
+    "no redactas la documentación final de chapter; no tomas decisiones de datos ni de esquema. "
+    "Códigos HTTP válidos: rangos 1xx (informativos), 2xx (éxito), 3xx (redirección), 4xx (error del cliente) y 5xx (error del servidor). "
+    "Códigos que debes manejar en la UI: 200 OK, 201 Created, 204 No Content, 400 Bad Request, 401 Unauthorized, "
+    "403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable Content, 429 Too Many Requests, "
+    "500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable y 504 Gateway Timeout. "
+    "Cualquier otro código se trata como error genérico del servidor, salvo que el contrato lo defina. "
+    "Reglas de Angular 21: usa componentes standalone, signals, sintaxis de control de flujo @if/@for/@switch, inject() y formularios reactivos tipados. "
+    "No uses NgModules nuevos, *ngIf ni *ngFor. Consume las APIs HTTP mediante HttpClient (provideHttpClient). "
+    "Usa operadores de RxJS como switchMap (sin subscribe anidados) o toSignal para encadenar llamadas HTTP. "
+    "Cancela las peticiones en curso con switchMap o takeUntilDestroyed, y descarta las respuestas obsoletas de peticiones ya superadas."
+)
+
+agent = Agent(
+    role='Desarrollador frontend',
+    goal="Implementar el recorrido de usuario del Issue en Angular 21 según el contrato de API aprobado, "
+         "consumiendo las APIs HTTP definidas en ese contrato y las APIs nativas del navegador que correspondan "
+         "(por ejemplo, formularios, foco y ARIA), con estados de carga, vacío, éxito y error, validaciones visibles "
+         "y accesibilidad.",
+    backstory="Eres un desarrollador frontend senior con experiencia en Angular 21 y accesibilidad. "
+              "Trabajas solo con el contrato de API aprobado, sin inventar endpoints ni campos. "
+              "No dependes de detalles no documentados de Angular 21; si no estás seguro de una API, lo marcas como supuesto. "
+              "No inventas resultados de pruebas.",
+    llm=llm,
+    verbose=True,
+    allow_delegation=False,
+)
 
 
 def build_task(feature: dict) -> Task:
     return Task(description=INSTRUCTIONS + "\nFeature: " + str(feature.get("title", ""))
                 + "\n" + str(feature.get("description", ""))
                 + "\n" + str(feature.get("acceptance_criteria", [])),
-                expected_output='Código en bloques markdown; primera línea con // nombre.service.ts.', agent=agent)
+                expected_output='frontend_spec.md y código Angular en bloques markdown; '
+                                'primera línea de cada bloque con // nombre-del-archivo.ts',
+                agent=agent)
