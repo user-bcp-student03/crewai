@@ -23,7 +23,7 @@ INSTRUCTIONS = (
     "Si falta contexto para confirmar un riesgo, indícalo como hipótesis.\n"
     "Entrega security_report.md ordenado por severidad, con hallazgos, correcciones y comprobaciones."
 )
-agent = Agent(role='Revisor de seguridad', goal=(
+agent = Agent(role='Analista de seguridad', goal=(
     "Identificar y priorizar los riesgos de seguridad de la funcionalidad revisada, "
     "documentar cada hallazgo con evidencia y recomendar correcciones concretas, "
     "distinguiendo las verificaciones ejecutadas de las que solo se proponen."
