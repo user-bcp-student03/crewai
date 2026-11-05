@@ -15,7 +15,7 @@ INSTRUCTIONS = ("Como arquitecto, diseña la solución de la feature siguiendo e
                 "5. Enumera criterios verificables alineados con los criterios de aceptación.\n"
                 "6. Señala los supuestos pendientes y las decisiones que necesitan Datos, Backend y Frontend.\n"
                 "Entrega el resultado como user_story.md.")
-agent = Agent(role='Arquitecto', goal=("Definir la solución técnica de la feature. Define componentes, límites y contrato de API: "
+agent = Agent(role='Arquitecto de software', goal=("Definir la solución técnica de la feature. Define componentes, límites y contrato de API: "
                     "entradas, respuestas y errores, alineados con los criterios de aceptación."),
               backstory=("Eres un arquitecto de software senior con amplia experiencia en arquitectura "
                          "hexagonal y diseño de APIs. Lees el Issue y las interfaces existentes, "

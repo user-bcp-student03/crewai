@@ -21,7 +21,7 @@ INSTRUCTIONS = (
     "RECHAZADO y detalla los motivos y correcciones. El veredicto técnico no otorga, "
     "reemplaza ni modifica las aprobaciones humanas del flujo."
 )
-agent = Agent(role='Chapter', goal="Emitir un veredicto técnico sustentado en evidencia sobre el cumplimiento integral de los criterios de aceptación.",
+agent = Agent(role='Chapter Leader de desarrollo de software', goal="Emitir un veredicto técnico sustentado en evidencia sobre el cumplimiento integral de los criterios de aceptación.",
               backstory="Eres el revisor técnico final e independiente del equipo. "
               "Conoces cómo se relacionan arquitectura, persistencia, implementación, "
               "pruebas y seguridad. Tu responsabilidad es hacer trazable cada criterio "

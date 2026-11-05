@@ -13,7 +13,7 @@ Detalla preparación, datos de prueba, comandos y limpieza.
 Comprueba los contratos de API y persistencia y las correcciones propuestas.
 Marca NO EJECUTADO cuando no tengas una salida real. No inventes resultados.
 Entrega testing_report.md, pruebas y comandos reproducibles."""
-agent = Agent(role='Ingeniero de pruebas de transferencias',
+agent = Agent(role='Ingeniero de pruebas de calidad de software',
               goal="Diseñar y documentar pruebas reproducibles para Transfer funds, verificando el rechazo de transferencias con fondos insuficientes y los contratos aprobados de API y persistencia.",
               backstory="Eres especialista en QA de sistemas financieros. Evalúas transferencias entre cuentas mediante sus interfaces y contratos aprobados; separas claramente los casos propuestos de los realmente ejecutados y nunca inventas resultados ni detalles técnicos que no estén especificados.", llm=llm,
               verbose=True, allow_delegation=False)
