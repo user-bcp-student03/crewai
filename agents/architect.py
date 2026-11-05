@@ -7,7 +7,14 @@ LABEL = 'Arquitecto'
 SPEC_FILE = 'user_story.md'
 EXTRACT_CODE = False
 
-INSTRUCTIONS = "Realiza la tarea de tu rol."
+INSTRUCTIONS = ("Como arquitecto, diseña la solución de la feature siguiendo estos pasos:\n"
+                "1. Lee el Issue y las interfaces existentes antes de proponer nada.\n"
+                "2. Define los componentes y sus límites.\n"
+                "3. Define el contrato de API: entradas, respuestas y errores.\n"
+                "4. Escribe el recorrido de una petición y un ejemplo de petición y respuesta.\n"
+                "5. Enumera criterios verificables alineados con los criterios de aceptación.\n"
+                "6. Señala los supuestos pendientes y las decisiones que necesitan Datos, Backend y Frontend.\n"
+                "Entrega el resultado como user_story.md.")
 agent = Agent(role='Arquitecto', goal=("Definir la solución técnica de la feature. Define componentes, límites y contrato de API: "
                     "entradas, respuestas y errores, alineados con los criterios de aceptación."),
               backstory=("Eres un arquitecto de software senior con amplia experiencia en arquitectura "
