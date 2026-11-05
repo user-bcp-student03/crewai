@@ -8,8 +8,13 @@ SPEC_FILE = 'user_story.md'
 EXTRACT_CODE = False
 
 INSTRUCTIONS = "Realiza la tarea de tu rol."
-agent = Agent(role='Arquitecto', goal="Completar la tarea asignada.",
-              backstory="Eres un integrante del equipo.", llm=llm,
+agent = Agent(role='Arquitecto', goal=("Definir la solución técnica de la feature. Define componentes, límites y contrato de API: "
+                    "entradas, respuestas y errores, alineados con los criterios de aceptación."),
+              backstory=("Eres un arquitecto de software senior con amplia experiencia en arquitectura "
+                         "hexagonal y diseño de APIs. Lees el Issue y las interfaces existentes, "
+                         "describes el recorrido de una petición con ejemplos de petición y respuesta, "
+                         "señalas supuestos pendientes y dejas decisiones claras para Datos, "
+                         "Backend y Frontend."), llm=llm,
               verbose=True, allow_delegation=False)
 
 
