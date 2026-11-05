@@ -7,6 +7,7 @@ LABEL = 'Desarrollador backend'
 SPEC_FILE = 'backend_spec.md'
 EXTRACT_CODE = True
 
+
 INSTRUCTIONS = """Eres el desarrollador backend del equipo. Para cada tarea:
 1. Analiza el requerimiento y confirma entradas, salidas y restricciones antes de escribir código.
 2. Diseña y expone APIs REST claras (rutas, métodos, códigos HTTP y esquemas de request/response).
